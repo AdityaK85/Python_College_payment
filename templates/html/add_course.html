@@ -1,0 +1,41 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block customStyles %}
+{% endblock %}
+
+
+{% block pageTitle %}
+Add Course
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label for="">Name of course</label>
+                    <input type="text" name="" class="form-control" id="course_name">
+                </div>
+                <div class="col-4">
+                    <label for="">Fees</label>
+                    <input type="text" name="" class="form-control" id="course_name">
+                </div>
+                <div class="col-4">
+                    <label for="">Duration in numbers</label>
+                    <input type="text" name="" class="form-control" id="course_name">
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" >Save</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block customScripts %} 
+	
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block customStyles %}
+{% endblock %}
+
+
+{% block pageTitle %}
+<div class="d-flex" style="justify-content: space-between;" >
+    <div>
+        <p>Student List</p>
+    </div>
+    <div>
+        <a href="/admin_user/new_student" class="btn btn-sm btn-primary" ><i class="fas fa-plus" ></i> New </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="postion_div table-responsive">
+            {{string}}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block customScripts %} 
+	<script type="module" src="{% static 'admin_js/postions.js' %}"></script>
+{% endblock %}

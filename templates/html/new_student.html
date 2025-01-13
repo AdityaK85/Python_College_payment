@@ -1,0 +1,108 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block customStyles %}
+{% endblock %}
+
+
+{% block pageTitle %}
+<div class="text-end" >
+    
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header d-flex " style="justify-content: space-between;margin-bottom: -24px;" >
+        <h4>Basic Information</h4>
+        <h5>STU940380</h5>
+    </div>
+    <hr>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="">Student Name</label>
+                    <input type="text" class="form-control" id="student_name">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" >
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="">Gender</label>
+                    <select name="" id="gender" class="form-control">
+                        <option value="">Select Gender</option>
+                        <option value="">Male</option>
+                        <option value="">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">Nationality</label>
+                    <input type="text" id="nationality" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">Email Address</label>
+                    <input type="text" id="email" class="form-control">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">Mobile Number</label>
+                    <input type="text" id="mobile_no" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-header">
+        <h4>Academic Information</h4>
+      </div>
+    <hr>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="">Course </label>
+                    <select class="form-control" id="plan_id" onchange="change_course(this.value)" >
+                        <option value=""  >Select Course</option>
+                        {% for i in course_obj %}
+                            <option value="{{i.id}}">{{i.course_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="">Year's</label>
+                    <input type="text" id='coures_duration' class="form-control" value="" >
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group">
+                    <label for="">Course Fees</label>
+                    <input type="text" readonly id='coures_fees' class="form-control" value="" >
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center " >
+                <button class="btn btn-success" onclick="SaveStudent(this)" >Save</button>
+                <button class="btn btn-danger mx-2" >Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block customScripts %} 
+
+<script type="module" src="{% static 'admin_js/new_student.js' %}"></script>
+	
+{% endblock %}

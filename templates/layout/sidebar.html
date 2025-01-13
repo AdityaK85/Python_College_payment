@@ -1,0 +1,19 @@
+{% load static %}
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <h5 style = "margin-top: 24px;">JD </h5>	
+        </div>
+        <ul class="sidebar-menu">
+           
+                {% if request.session.user_type == 'admin' %}
+                    <li id ="dashboard"><a class="nav-link" href="/dashboard/"><i class="fab fa-dashcube"></i><span>Dashboard</span></a></li>
+                    <!-- <li id ="course"><a class="nav-link" href="/admin_user/course_list/"><i class="fas fa-users"></i><span>Course</span></a></li> -->
+                    <li id ="student"><a class="nav-link" href="/admin_user/student_list/"><i class="fas fa-users"></i><span>Student</span></a></li>
+                    <!-- <li id ="student"><a class="nav-link" href="/admin_user/Fees/"><i class="fas fa-users"></i><span>Fees</span></a></li> -->
+                {% else %}
+                {% endif %}
+		
+        </ul>
+    </aside> 
+</div>

@@ -1,0 +1,215 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Login</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bundles/bootstrap-social/bootstrap-social.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bundles/pretty-checkbox/pretty-checkbox.min.css' %} ">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.8/dist/sweetalert2.min.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css'%}">
+  <link rel='shortcut icon' type='image/x-icon' href="{% static 'website/images/logo1.png' %}" />
+</head>
+
+<style>
+  .error_class{
+    border: 1px solid red !important;
+  }
+  .theme-white .card.card-primary {
+      border-top: 2px solid #06A3DA;
+  }
+  .card{
+    border: none;
+    border-top: 5px solid  #06A3DA;
+    background: #ffffff;
+    color: #000000;
+  }
+  p{
+    font-weight: 600;
+    font-size: 17px;
+    color :#061429;
+  }
+  .btn-primary{
+  background: #06A3DA;
+  border: none;
+  border-radius: 50px;
+  }
+  .btn-primary:focus{
+    box-shadow: none;
+    border: none;
+  }
+  small{
+    color: #ffffff;
+    font-size : 14px;
+    font-weight: 700;
+  }
+  .far.fa-user{
+    font-size: 15px;
+  }
+  .form-group>label {
+      font-weight: 600;
+      color: #363636;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+  }
+  .form-group .control-label, .form-group>label {
+      font-weight: 600;
+      color: #363636;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+  }
+</style>
+
+<body style="background-color:#e8f2ff;">
+  <div class="loader"></div>
+    <div id="app">
+      <section class="section">
+        <div class="container mt-5">
+          <div class="row">
+            
+            <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+              <div class="card py-3" style="margin-top: 20px;">
+              
+                <p class="text-center mb-3 mt-2">LOGIN</p> 
+              
+          
+                <div class="card-body" style="margin-top: -20px;">
+                  <form method="POST" action="dashboard.html" class="needs-validation" novalidate="">
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text"  id="username" class="form-control" name="username" tabindex="1" required autofocus  placeholder="Username" >
+                    </div>
+                    <div class="form-group">
+                      <div class="d-block">
+                        <label for="password" class="control-label">Password</label>
+                      </div>
+                        <input id="password"  type="password" class="form-control" name="password" tabindex="2" required placeholder="Password">
+                      </div>
+
+                    <div class="form-group mt-0 d-flex justify-content-center">
+                      <div class="pretty p-icon p-curve p-rotate">
+                        <input type="radio" name="radio66" value="admin" >
+                        <div class="state p-success-o">
+                          <i class="icon material-icons">done</i>
+                          <label>Admin Login</label>
+                        </div>
+                      </div>
+                      <div class="pretty p-icon p-curve p-rotate">
+                        <input type="radio" name="radio66" value="student" checked>
+                        <div class="state p-success-o">
+                          <i class="icon material-icons">done</i>
+                          <label>Student Login</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    </div>
+
+                    
+                    
+                    <div class="form-group mx-4">
+                      <button onclick="loginUser()" type="button" id = "save_button" class="btn btn-block btn-primary btn-lg"tabindex="4" style="margin-top: -10px;"> <small>Login</small></button>
+                    </div>
+					
+					
+                  </form>
+                
+                </div>
+              </div>
+              
+            </div>
+          
+          </div>
+        </div>
+      </section>
+    </div>
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js'%}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js'%}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js'%}"></script>
+</body>
+
+
+<!-- Mirrored from radixtouch.in/templates/zivi/source/light/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Jul 2020 10:12:39 GMT -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.8/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
+<script type="module" src="{% static 'website/js/login.js' %}"></script>
+<script>
+    $(document).ready(function () {
+      $(document).bind("keypress", function (e) {
+        if (e.keyCode == 13) {
+          $("#save_button").trigger("click");
+        }
+      });
+    });
+
+    function showToast(status, message) {
+    if (status === 1) {
+        iziToast.success({
+            title: 'Success',
+            message: message,
+            position: 'topRight'
+        });
+    } else {
+        iziToast.error({
+            title: 'Error',
+            message: message,
+            position: 'topRight'
+        });
+    }
+}
+
+function loginUser(){
+
+    var username = $('#username').val()
+    var password = $('#password').val()
+    const selectedRadio = document.querySelector('input[name="radio66"]:checked');
+
+    if (username == ""){
+        showToast(0, 'Please enter username')
+    }
+    else if (password == ""){
+        showToast(0, 'Please enter password')
+    }
+    else{
+
+        var data = {
+            'username':username,
+            'password':password,
+            'login_by':selectedRadio.value,
+        }
+
+        $.ajax({
+            method:"POST",
+            url:'/login_handler/',
+            data:data,
+            success:async function(response){
+                if (response.status == 1){
+                    await showToast(1, response.msg)
+                    location.href = response.url
+                }
+                else{
+                    showToast(0, response.msg)
+                }
+            }
+        })
+
+    }
+}
+
+</script>
